@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirm Delete</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            width: 50%;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        form button[type="submit"], form a {
+            padding: 10px 20px;
+            margin-right: 10px;
+            text-decoration: none;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        form button[type="submit"] {
+            background-color: #dc3545;
+            border: 1px solid #dc3545;
+        }
+        form button[type="submit"]:hover {
+            background-color: #c82333;
+            border-color: #c82333;
+        }
+        form a {
+            background-color: #007bff;
+            border: 1px solid #007bff;
+        }
+        form a:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Confirm Delete</h1>
+    <h1>Are you sure you want to delete "{{ product.name }}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm</button>
+        <a href="{% url 'product_list' %}">Cancel</a>
+    </form>
+</body>
+</html>
